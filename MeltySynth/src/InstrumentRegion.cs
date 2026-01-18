@@ -68,7 +68,7 @@ namespace MeltySynth
         internal static InstrumentRegion[] Create(Instrument instrument, Span<Zone> zones, SampleHeader[] samples)
         {
             // Is the first one the global zone?
-            if (zones[0].Generators.Count == 0 || zones[0].Generators.Last().Type != GeneratorType.SampleID)
+            if (zones.Length != 0 && (zones[0].Generators.Count == 0 || zones[0].Generators.Last().Type != GeneratorType.SampleID))
             {
                 // The first one is the global zone.
                 var global = zones[0];
